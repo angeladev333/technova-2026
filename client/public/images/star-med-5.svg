@@ -19,7 +19,7 @@
 <filter id="filter64_nf_81_2" x="858.900" y="196.108" width="54.475" height="54.475" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix" />
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-<feTurbulence type="fractalNoise" baseFrequency="1.9552465677261353 1.9552465677261353" stitchTiles="stitch" numOctaves="3" result="noise" seed="2299" />
+<feTurbulence type="fractalNoise" baseFrequency="3.5194 3.5194" stitchTiles="stitch" numOctaves="3" result="noise" seed="2299" />
 <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
 <feComponentTransfer in="alphaNoise" result="coloredNoise1">
 <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " />
@@ -41,7 +41,7 @@
 <filter id="filter66_n_81_2" x="860.872" y="201.824" width="50.595" height="50.690" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix" />
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-<feTurbulence type="fractalNoise" baseFrequency="1.168150782585144 1.168150782585144" stitchTiles="stitch" numOctaves="3" result="noise" seed="2299" />
+<feTurbulence type="fractalNoise" baseFrequency="2.1027 2.1027" stitchTiles="stitch" numOctaves="3" result="noise" seed="2299" />
 <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
 <feComponentTransfer in="alphaNoise" result="coloredNoise1">
 <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " />
@@ -57,7 +57,7 @@
 <filter id="filter67_n_81_2" x="837.048" y="178.046" width="98.246" height="98.247" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix" />
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-<feTurbulence type="fractalNoise" baseFrequency="1.168150782585144 1.168150782585144" stitchTiles="stitch" numOctaves="3" result="noise" seed="2299" />
+<feTurbulence type="fractalNoise" baseFrequency="2.1027 2.1027" stitchTiles="stitch" numOctaves="3" result="noise" seed="2299" />
 <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
 <feComponentTransfer in="alphaNoise" result="coloredNoise1">
 <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " />
