@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="737.67" height="980.79" viewBox="0.0 1780.21 737.67 980.79" fill="none"><g id="Ellipse 25" filter="url(#filter73_dfn_81_2)">
 <circle cx="217.44" cy="2300.44" r="282.724" transform="rotate(-51.2697 217.44 2300.44)" fill="url(#paint14_linear_81_2)" />
 </g>
-<g id="Mask group_3">
+<g id="Mask group_3" clip-path="url(#green-planet-mask-clip)">
 <g id="Vector 394" filter="url(#filter74_fn_81_2)">
 <path d="M256 2084C326 2080.8 332.833 2108.33 327.5 2122.5C317.167 2133.17 288.4 2153.7 256 2150.5C215.5 2146.5 264 2122.5 190 2112C116 2101.5 168.5 2088 256 2084Z" fill="#649415" fill-opacity="0.34" />
 </g>
@@ -70,7 +70,8 @@
 <feMergeNode in="color1" />
 </feMerge>
 </filter>
-<linearGradient id="paint14_linear_81_2" x1="281.453" y1="2046.52" x2="155.561" y2="2583.16" gradientUnits="userSpaceOnUse">
+<clipPath id="green-planet-mask-clip"><circle cx="217.44" cy="2300.44" r="282.724" transform="rotate(-51.2697 217.44 2300.44)" />
+</clipPath><linearGradient id="paint14_linear_81_2" x1="281.453" y1="2046.52" x2="155.561" y2="2583.16" gradientUnits="userSpaceOnUse">
 <stop stop-color="#FFF4AF" />
 <stop offset="1" stop-color="#649415" />
 </linearGradient>

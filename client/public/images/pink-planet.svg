@@ -114,8 +114,7 @@
 <filter id="filter34_f_81_2" x="-95.342" y="-382.481" width="2741.630" height="3044.030" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix" />
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-<feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_81_2" />
-</filter>
+<feGaussianBlur stdDeviation="141.4214 141.4214" /><feGaussianBlur stdDeviation="141.4214 141.4214" result="effect1_foregroundBlur_81_2" /></filter>
 <filter id="filter35_f_81_2" x="207.689" y="1129.530" width="908.715" height="302.771" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix" />
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />

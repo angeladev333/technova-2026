@@ -4,11 +4,13 @@ import { useState } from "react";
 
 // Layers exported from Figma frame 81:74, in stacking order. x/y/w are frame pixels.
 const FRAME_WIDTH = 1512;
+const fx = (px: number) => `${(px / FRAME_WIDTH) * 100}vw`;
 const BACKGROUND_LAYERS = [
   { src: "bg", x: 0, y: 0, w: 1512 },
   { src: "saturn", x: 0, y: 0, w: 759.93 },
   { src: "star-small", x: 978.05, y: 902.05, w: 87.9 },
-  { src: "big-star", x: 0, y: 0, w: 1512 },
+  // Raised 180px above its Figma spot so the star's core clears the pink planet.
+  { src: "big-star", x: 0, y: -425.02 - 180, w: 1512 },
   { src: "pink-planet", x: 152.9, y: 511.9, w: 1641.64 },
   { src: "star-med-1", x: 0, y: 395.63, w: 819.71 },
   { src: "star-med-2", x: 0, y: 0, w: 853.26 },
@@ -66,76 +68,89 @@ export default function Home() {
           style={{ right: "2.3%", top: "2.6vw", width: "5.8%" }}
         />
 
-        {/* Title section */}
-        <div className="absolute" style={{ left: "6.8%", top: "26.4vw" }}>
-          <h1
-            className="leading-[0.94]"
-            style={{
-              fontFamily: "var(--font-righteous)",
-              fontSize: "clamp(36px, 9.6vw, 145px)",
-              background:
-                "linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #dfc5ee 55%, #c9a0e3 75%, #B782DB 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
-            }}
-          >
-            TechNova 6
-          </h1>
+        {/* Title, date, subscribe form — Figma nodes 81:160 and 162:13 */}
+        <h1
+          className="absolute whitespace-nowrap"
+          style={{
+            left: fx(103),
+            top: fx(399),
+            fontFamily: "var(--font-righteous)",
+            fontSize: fx(145),
+            lineHeight: 0.941,
+            background:
+              "linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #dfc5ee 55%, #c9a0e3 75%, #B782DB 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
+          }}
+        >
+          TechNova 6
+        </h1>
 
-          <p
-            className="text-white"
-            style={{
-              fontFamily: "var(--font-josefin)",
-              fontSize: "clamp(14px, 3.2vw, 48px)",
-              marginTop: "1.5vw",
-            }}
-          >
-            January 22nd-24th, 2026
-          </p>
+        <p
+          className="absolute text-white whitespace-nowrap"
+          style={{
+            left: fx(111),
+            top: fx(558),
+            fontFamily: "var(--font-josefin)",
+            fontSize: fx(48),
+            lineHeight: 0.941,
+          }}
+        >
+          January 22nd-24th, 2026
+        </p>
 
-          <p
-            className="text-white"
-            style={{
-              fontFamily: "var(--font-josefin)",
-              fontSize: "clamp(12px, 2.6vw, 40px)",
-              marginTop: "7.3vw",
-            }}
-          >
-            Subscribe for more updates coming soon!
-          </p>
+        <p
+          className="absolute text-white whitespace-nowrap"
+          style={{
+            left: fx(113),
+            top: fx(714),
+            fontFamily: "var(--font-josefin)",
+            fontSize: fx(40),
+            lineHeight: 0.941,
+          }}
+        >
+          Subscribe for more updates coming soon!
+        </p>
 
-          <div className="flex" style={{ gap: "1vw", marginTop: "1.2vw" }}>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="rounded-[8px] text-black/80 bg-white"
-              style={{
-                width: "clamp(120px, 33vw, 500px)",
-                height: "clamp(28px, 3.2vw, 49px)",
-                fontSize: "clamp(10px, 1.8vw, 27px)",
-                fontFamily: "var(--font-josefin)",
-                padding: "0 1vw",
-                boxShadow: "inset -2px 3px 5px rgba(0,0,0,0.25)",
-              }}
-            />
-            <button
-              className="rounded-[8px] bg-[#11a3ba] text-white font-normal flex items-center justify-center cursor-pointer hover:bg-[#0e8fa3] transition-colors"
-              style={{
-                width: "clamp(50px, 8vw, 121px)",
-                height: "clamp(28px, 3.2vw, 49px)",
-                fontSize: "clamp(10px, 1.8vw, 27px)",
-                fontFamily: "var(--font-josefin)",
-                boxShadow: "2.66px 2.66px 2.7px rgba(0,0,0,0.25)",
-              }}
-            >
-              JOIN
-            </button>
-          </div>
-        </div>
+        <input
+          type="email"
+          placeholder="Email"
+          aria-label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="absolute bg-white text-black/80 placeholder:text-black/[0.32] outline-none"
+          style={{
+            left: fx(113),
+            top: fx(770),
+            width: fx(750),
+            height: fx(73),
+            borderRadius: fx(13),
+            padding: `${fx(23)} ${fx(19)} ${fx(16)}`,
+            fontFamily: "var(--font-josefin)",
+            fontSize: fx(40),
+            lineHeight: 0.941,
+            boxShadow: "inset -3px 5px 7.7px rgba(0,0,0,0.25)",
+          }}
+        />
+        <button
+          className="absolute flex items-center justify-center bg-[#11a3ba] text-white cursor-pointer hover:bg-[#0e8fa3] transition-colors"
+          style={{
+            left: fx(897),
+            top: fx(770),
+            width: fx(182),
+            height: fx(73),
+            borderRadius: fx(13),
+            padding: `${fx(23)} ${fx(21)} ${fx(16)}`,
+            fontFamily: "var(--font-josefin)",
+            fontSize: fx(40),
+            lineHeight: 0.941,
+            filter: "drop-shadow(4px 4px 4.05px rgba(0,0,0,0.25))",
+          }}
+        >
+          JOIN
+        </button>
 
         {/* Website coming soon text */}
         <p
