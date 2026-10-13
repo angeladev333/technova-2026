@@ -13,3 +13,7 @@
 [build.environment]
   # Next.js 16 requires Node >= 20.9; matches the version used in local development.
   NODE_VERSION = "22"
+  # NEXT_PUBLIC_* values are inlined into the browser bundle by design, and the Supabase URL and
+  # publishable key are meant to be public, so they're excluded from Netlify's secrets scan.
+  # Real secrets (SUPABASE_SECRET_KEY, RESEND_API_KEY, SEND_EMAIL_HOOK_SECRET) are still scanned.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,NEXT_PUBLIC_SITE_URL"
