@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
+import { InterestSignupForm } from "@/components/interest-signup-form";
+import { FRAME_WIDTH, fx } from "@/lib/frame";
 
 type Motion = {
   kind: "spin" | "twinkle" | "breathe";
@@ -13,13 +15,11 @@ type Motion = {
 type Layer = { src: string; x: number; y: number; w: number; motion?: Motion };
 
 // Layers exported from Figma frame 81:74, in stacking order. x/y/w are frame pixels.
-const FRAME_WIDTH = 1512;
-const fx = (px: number) => `${(px / FRAME_WIDTH) * 100}vw`;
 const BACKGROUND_LAYERS: Layer[] = [
   { src: "bg", x: 0, y: 0, w: 1512 },
   // Planet surfaces are split into layers that spin at different speeds so they drift past each other.
-  { src: "saturn-planet-body", x: -236.5, y: -54.5, w: 640, motion: { kind: "spin", dur: 200 } },
-  { src: "saturn-planet-bands", x: -146.5, y: 35.5, w: 460, motion: { kind: "spin", dur: 140 } },
+  { src: "saturn-planet-body", x: -236.5, y: -54.5, w: 640, motion: { kind: "spin", dur: 600 } },
+  { src: "saturn-planet-bands", x: -146.5, y: 35.5, w: 460, motion: { kind: "spin", dur: 420 } },
   { src: "saturn-ring", x: 0, y: 0, w: 759.93 },
   { src: "star-small", x: 978.05, y: 902.05, w: 87.9, motion: { kind: "twinkle", dur: 4.2, delay: -1.1 } },
   // Raised 180px above its Figma spot so the star's core clears the pink planet.
@@ -28,9 +28,9 @@ const BACKGROUND_LAYERS: Layer[] = [
     motion: { kind: "breathe", dur: 8, origin: "82.63% 50.09%" },
   },
   { src: "pink-planet-halo", x: 164.04, y: 376.6, w: 1762.8 },
-  { src: "pink-planet-base", x: 500.44, y: 713, w: 1090, motion: { kind: "spin", dur: 260 } },
-  { src: "pink-planet-color", x: 500.44, y: 713, w: 1090, motion: { kind: "spin", dur: 200 } },
-  { src: "pink-planet-bands", x: 500.44, y: 713, w: 1090, motion: { kind: "spin", dur: 150 } },
+  { src: "pink-planet-base", x: 500.44, y: 713, w: 1090, motion: { kind: "spin", dur: 780 } },
+  { src: "pink-planet-color", x: 500.44, y: 713, w: 1090, motion: { kind: "spin", dur: 600 } },
+  { src: "pink-planet-bands", x: 500.44, y: 713, w: 1090, motion: { kind: "spin", dur: 450 } },
   // The big star's reflection stays put while the surface turns beneath it.
   { src: "pink-planet-glint", x: 500.44, y: 713, w: 1090 },
   {
@@ -53,14 +53,12 @@ const BACKGROUND_LAYERS: Layer[] = [
     src: "star-med-6", x: 28.16, y: 1326.16, w: 580.02,
     motion: { kind: "twinkle", dur: 4.9, delay: -0.2, origin: "50% 49.34%" },
   },
-  { src: "green-planet-body", x: -212.56, y: 1870.44, w: 860, motion: { kind: "spin", dur: 170 } },
-  { src: "green-planet-bands", x: -72.56, y: 2010.44, w: 580, motion: { kind: "spin", dur: 140 } },
-  { src: "green-planet-spots", x: -72.56, y: 2010.44, w: 580, motion: { kind: "spin", dur: 115 } },
+  { src: "green-planet-body", x: -212.56, y: 1870.44, w: 860, motion: { kind: "spin", dur: 510 } },
+  { src: "green-planet-bands", x: -72.56, y: 2010.44, w: 580, motion: { kind: "spin", dur: 420 } },
+  { src: "green-planet-spots", x: -72.56, y: 2010.44, w: 580, motion: { kind: "spin", dur: 345 } },
 ];
 
 export default function Home() {
-  const [email, setEmail] = useState("");
-
   return (
     <main
       className="relative w-full overflow-hidden bg-[#111c4c]"
@@ -150,60 +148,24 @@ export default function Home() {
           Subscribe for more updates coming soon!
         </p>
 
-        <input
-          type="email"
-          placeholder="Email"
-          aria-label="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="absolute bg-white text-black/80 placeholder:text-black/[0.32] outline-none"
-          style={{
-            left: fx(113),
-            top: fx(770),
-            width: fx(750),
-            height: fx(73),
-            borderRadius: fx(13),
-            padding: `${fx(23)} ${fx(19)} ${fx(16)}`,
-            fontFamily: "var(--font-josefin)",
-            fontSize: fx(40),
-            lineHeight: 0.941,
-            boxShadow: "inset -3px 5px 7.7px rgba(0,0,0,0.25)",
-          }}
-        />
-        <button
-          className="absolute flex items-center justify-center bg-[#11a3ba] text-white cursor-pointer hover:bg-[#0e8fa3] transition-colors"
-          style={{
-            left: fx(897),
-            top: fx(770),
-            width: fx(182),
-            height: fx(73),
-            borderRadius: fx(13),
-            padding: `${fx(23)} ${fx(21)} ${fx(16)}`,
-            fontFamily: "var(--font-josefin)",
-            fontSize: fx(40),
-            lineHeight: 0.941,
-            filter: "drop-shadow(4px 4px 4.05px rgba(0,0,0,0.25))",
-          }}
-        >
-          JOIN
-        </button>
+        <InterestSignupForm />
 
-        {/* Curved along the pink planet's upper-right limb, clear of the form and the star's glare */}
+        {/* Smile-shaped arc just under the pink planet (centre 1045.44,1258; radius 536) */}
         <svg
           className="absolute pointer-events-none"
           style={{
-            left: fx(1040),
-            top: fx(700),
-            width: fx(472),
+            left: fx(560),
+            top: fx(1600),
+            width: fx(952),
             overflow: "visible",
             filter: "drop-shadow(0 2px 8px rgba(30, 10, 60, 0.55))",
           }}
-          viewBox="1040 700 472 400"
+          viewBox="560 1600 952 340"
         >
-          <path id="coming-soon-arc" d="M1086.4 789.79 A470 470 0 0 1 1464.21 1044.62" fill="none" />
+          <path id="coming-soon-arc" d="M585.81 1643.67 A600 600 0 0 0 1505.07 1643.67" fill="none" />
           <text
             fill="#fff"
-            fontSize={42}
+            fontSize={52}
             letterSpacing="0.04em"
             style={{ fontFamily: "var(--font-josefin)" }}
           >

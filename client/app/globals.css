@@ -94,6 +94,57 @@ body {
   100% { transform: translate(0, 0); }
 }
 
+/* ---------- Interest signup form: frosted pill in the pink planet's palette ---------- */
+
+.signup-pill {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 12px 32px rgba(18, 8, 48, 0.35);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.signup-pill:focus-within {
+  border-color: rgba(214, 170, 240, 0.85);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 0 0 4px rgba(183, 130, 219, 0.22),
+    0 0 44px rgba(183, 130, 219, 0.45);
+}
+
+.signup-button {
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #b782db 0%, #e843b4 100%);
+  color: #fff;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(232, 67, 180, 0.35);
+  transition: filter 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.signup-button:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 26px rgba(232, 67, 180, 0.55);
+}
+
+.signup-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.signup-button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.signup-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .anim-spin,
   .anim-twinkle,
