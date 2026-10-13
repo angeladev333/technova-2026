@@ -1,0 +1,15 @@
+# Netlify deploys Next.js through its OpenNext-based Next.js Runtime. Auto-detection didn't
+# attach it to this site (deploys showed plugin_state "none" and served a bare 404), so it's
+# declared explicitly. Left unpinned so Netlify keeps it up to date.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build]
+  # The Next.js app lives in client/; install, build and publish all happen from there.
+  base = "client"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 requires Node >= 20.9; matches the version used in local development.
+  NODE_VERSION = "22"
